@@ -1,0 +1,18 @@
+# version de docker compose a utiliser
+version: '3.8'
+# definition des services a deployer dans le container
+services:
+# definition du service web
+  web:
+    # build du service web a partir du Dockerfile
+    build: .
+    # command a executer pour lancer le service web
+    command: yarn run start
+    # ports a exposer pour le service web
+    ports:
+      - "8050:8050"
+    # volumes a monter pour le service web
+    volumes:
+      - ./db:/server/db
+volumes:
+  db:
